@@ -148,6 +148,7 @@
 #include "elf/sh.h"
 #include "elf/sparc.h"
 #include "elf/spu.h"
+#include "elf/ssem.h"
 #include "elf/tic6x.h"
 #include "elf/tilegx.h"
 #include "elf/tilepro.h"
@@ -844,6 +845,7 @@ guess_is_rela (unsigned int e_machine)
     case EM_SPARC32PLUS:
     case EM_SPARCV9:
     case EM_SPU:
+    case EM_SSEM:
     case EM_TI_C6000:
     case EM_TILEGX:
     case EM_TILEPRO:
@@ -1579,6 +1581,10 @@ dump_relocations (Filedata *          filedata,
 	    rtype = elf_nfp3200_reloc_type (type);
 	  else
 	    rtype = elf_nfp_reloc_type (type);
+	  break;
+
+	case EM_SSEM:
+	  rtype = elf_ssem_reloc_type (type);
 	  break;
 	}
 
@@ -2508,6 +2514,7 @@ get_machine_name (unsigned e_machine)
     case EM_CYGNUS_FRV:		return "Fujitsu FR-V";
     case EM_S12Z:               return "Freescale S12Z";
     case EM_CSKY:		return "C-SKY";
+    case EM_SSEM:		return "SSEM";
 
     default:
       snprintf (buff, sizeof (buff), _("<unknown>: 0x%x"), e_machine);
@@ -12487,6 +12494,8 @@ is_32bit_abs_reloc (Filedata * filedata, unsigned int reloc_type)
 	|| reloc_type == 23; /* R_SPARC_UA32.  */
     case EM_SPU:
       return reloc_type == 6; /* R_SPU_ADDR32 */
+    case EM_SSEM:
+      return reloc_type == 1; /* R_SSEM_32 */
     case EM_TI_C6000:
       return reloc_type == 1; /* R_C6000_ABS32.  */
     case EM_TILEGX:
@@ -12986,6 +12995,7 @@ is_none_reloc (Filedata * filedata, unsigned int reloc_type)
     case EM_SPARC32PLUS:
     case EM_SPARC:   /* R_SPARC_NONE.  */
     case EM_SPARCV9:
+    case EM_SSEM:    /* R_SSEM_NONE.  */
     case EM_TILEGX:  /* R_TILEGX_NONE.  */
     case EM_TILEPRO: /* R_TILEPRO_NONE.  */
     case EM_TI_C6000:/* R_C6000_NONE.  */

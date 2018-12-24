@@ -83,6 +83,7 @@
 #define ARCH_sh
 #define ARCH_sparc
 #define ARCH_spu
+#define ARCH_ssem
 #define ARCH_tic30
 #define ARCH_tic4x
 #define ARCH_tic54x
@@ -533,6 +534,11 @@ disassembler (enum bfd_architecture a,
 #ifdef ARCH_tilepro
     case bfd_arch_tilepro:
       disassemble = print_insn_tilepro;
+      break;
+#endif
+#ifdef ARCH_ssem
+    case bfd_arch_ssem:
+      disassemble = print_insn_ssem;
       break;
 #endif
     default:

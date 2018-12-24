@@ -147,6 +147,8 @@ config/tc-sparc.c
 config/tc-sparc.h
 config/tc-spu.c
 config/tc-spu.h
+config/tc-ssem.c
+config/tc-ssem.h
 config/tc-tic30.c
 config/tc-tic30.h
 config/tc-tic4x.c

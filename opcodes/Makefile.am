@@ -233,6 +233,8 @@ TARGET_LIBOPCODES_CFILES = \
 	sparc-opc.c \
 	spu-dis.c \
 	spu-opc.c \
+	ssem-dis.c \
+	ssem-opc.c \
 	tic30-dis.c \
 	tic4x-dis.c \
 	tic54x-dis.c \

@@ -722,6 +722,7 @@ sparc-*-solaris2*)	targ_emul=elf32_sparc_sol2
 sparc*-*-vxworks*)	targ_emul=elf32_sparc_vxworks ;;
 sparc*-*-*)		targ_emul=elf32_sparc ;;
 spu-*-elf*)		targ_emul=elf32_spu ;;
+ssem-*-elf*)		targ_emul=elf32ssem ;;
 tic30-*-*aout*)		targ_emul=tic30aout ;;
 tic30-*-*coff*)		targ_emul=tic30coff ;;
 tic4x-*-* | c4x-*-*)	targ_emul=tic4xcoff ; targ_extra_emuls="tic3xcoff tic3xcoff_onchip" ;;

@@ -2439,6 +2439,7 @@ enum bfd_architecture
 #define bfd_mach_ck803         5
 #define bfd_mach_ck807         6
 #define bfd_mach_ck810         7
+  bfd_arch_ssem,      /* Small-Scale Experimental Machine.  */
   bfd_arch_last
   };
 
